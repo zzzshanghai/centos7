@@ -34,4 +34,4 @@ RUN echo "root:password" | chpasswd
 EXPOSE 80
 EXPOSE 22
 
-CMD service crond start; /usr/sbin/sshd -D; /usr/sbin/init
+CMD service crond start; /usr/sbin/sshd -D
