@@ -15,7 +15,7 @@ RUN yum install -y sudo passwd openssh-server openssh-clients wget tar screen vi
 # start sshd to generate host keys, patch sshd_config and enable yum repos
 RUN (ssh-keygen -q -b 1024 -N '' -t rsa -f /etc/ssh/ssh_host_rsa_key; \
      ssh-keygen -q -b 1024 -N '' -t dsa -f /etc/ssh/ssh_host_dsa_key; \
-     ssh-keygen -q -b 521 -N '' -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key)
+     ssh-keygen -q -b 512 -N '' -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key)
 
 RUN (sed -i 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config; \
      sed -i 's/#UsePAM no/UsePAM no/g' /etc/ssh/sshd_config; \
